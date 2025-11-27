@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/11/25 17:13:33 by codespace        ###   ########.fr       */
+/*   Updated: 2025/11/27 04:07:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_atoi(const char *str)
 {
-    return (c >= '0' && c<='9');
+    int i = 0
+    int sign = 1
+    int result = 0
+    
+    while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+    {
+        i++;
+        
+    } 
+    if (str [i] == '-' || str [i] == '+')
+    {
+        if (str[i] == '-')
+            sign = -1;
+        i++;
+    }
+    while (str[i] >= '0' && str[i] <= '9'))
+    {
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+    return (result * sign); 
 }
