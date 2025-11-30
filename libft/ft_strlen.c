@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/11/30 16:37:58 by codespace        ###   ########.fr       */
+/*   Updated: 2025/11/30 16:37:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+size_t	ft_strlen(const char *s)
 {
-    int i = 0;
-    int sign = 1;
-    int result = 0;
+    size_t i = 0;
     
-    while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+    while (s[i] != '\0')
     {
-        i++;
-        
-    } 
-    if (str [i] == '-' || str [i] == '+')
-    {
-        if (str[i] == '-')
-            sign = -1;
         i++;
     }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return (result * sign); 
+    return (i);  
 }
