@@ -6,7 +6,7 @@
 /*   By: hshamudh <hshamudh@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/12/01 10:23:45 by hshamudh         ###   ########.fr       */
+/*   Updated: 2025/12/01 12:40:43 by hshamudh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i = 0;
+	size_t	i;
 
+	i = 0;
 	while (s[i] != '\0')
 	{
 		i++;
