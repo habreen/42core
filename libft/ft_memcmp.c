@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/12/02 12:11:30 by codespace        ###   ########.fr       */
+/*   Updated: 2025/12/02 13:28:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char	*a;
+	unsigned char	*b;
 
-	if (!dst && !src)
-		return (0);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
+	a = (unsigned char *)s1;
+	b = (unsigned char *)s2;
+
 	i = 0;
-	while (i < n)
+	while (i < n && a[i] == b[i])
 	{
-		d[i] = s[i];
 		i++;
 	}
-	return (dst);
+	if (i == n)
+		return (0);
+	return (a[i] - b[i]);
 }
