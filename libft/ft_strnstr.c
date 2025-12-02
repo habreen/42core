@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/12/02 15:27:22 by codespace        ###   ########.fr       */
+/*   Updated: 2025/12/02 15:32:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memchr(const void *s, int c, size_t n)
+char    *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    const unsigned char *ptr;
-    unsigned char       value;
-    size_t              i;
+    size_t  i;
+    size_t  little_len;
 
-    ptr = (const unsigned char *)s;
-    value = (unsigned char)c;
+    little_len = ft_strlen(little);
+    
+    if (little_len == 0)
+        return ((char *)big);
+
     i = 0;
-    while (i < n)
+    while (big[i] && little_len <= len - i)
     {
-        if (ptr[i] == value)
-            return ((void *)&ptr[i]);
+        if (!ft_strncmp(big + i, little, little_len))
+            return ((char *)big + i);
         i++;
     }
+    
     return (0);
 }
