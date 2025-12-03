@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/12/02 13:41:55 by codespace        ###   ########.fr       */
+/*   Updated: 2025/12/03 18:26:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	const unsigned char *s;
 
 	if (!dst && !src)
-		return (0);
+		return (NULL);
 
 	d = (unsigned char *)dst;
 	s = (const unsigned char *)src;
