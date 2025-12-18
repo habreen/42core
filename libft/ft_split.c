@@ -6,7 +6,7 @@
 /*   By: hshamudh <hshamudh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/12/15 20:39:55 by hshamudh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:19:21 by hshamudh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static char	*allocate_word(char *s, char c)
 	return (word);
 }
 
-static char	**ft_split_core(char **box, char const *s, char c)
+static char	**ft_split_main(char **box, char const *s, char c)
 {
 	char	*ptr;
 	int		i;
@@ -99,5 +99,5 @@ char	**ft_split(char const *s, char c)
 	box = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!box)
 		return (NULL);
-	return (ft_split_core(box, s, c));
+	return (ft_split_main(box, s, c));
 }

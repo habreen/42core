@@ -6,7 +6,11 @@
 /*   By: hshamudh <hshamudh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/12/18 17:15:02 by hshamudh         ###   ########.fr       */
+=======
+/*   Updated: 2025/12/18 17:21:29 by hshamudh         ###   ########.fr       */
+>>>>>>> 1523005 (comment)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +36,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 int main(void)
@@ -48,3 +53,21 @@ int main(void)
     else
         printf("Allocation failed\n");
 }
+=======
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(void)
+// {
+//     char    *str = "Hello World!";
+//     char    *sub;
+
+//     sub = ft_substr(str, 6, 5);
+//     if (sub)
+//     {
+//         printf("Substring: \"%s\"\n", sub);
+//         free(sub);
+//     }
+//     else
+//         printf("Allocation failed\n");
+// }
+>>>>>>> 1523005 (comment)

@@ -6,7 +6,7 @@
 /*   By: hshamudh <hshamudh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2025/12/12 16:57:20 by hshamudh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:21:29 by hshamudh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,21 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
+
+// char    *ft_strnstr(const char *big, const char *little, size_t len);
+
+// int main(void)
+// {
+//     const char  *big = "Hello world!";
+//     const char  *little = "world";
+//     char        *result;
+
+//     result = ft_strnstr(big, little, 12);
+
+//     if (result)
+//         printf("Found substring: \"%s\"\n", result);
+//     else
+//         printf("Substring not found\n");
+
+//     return (0);
+// }
