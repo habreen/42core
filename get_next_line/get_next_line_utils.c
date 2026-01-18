@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2026/01/18 21:45:38 by codespace        ###   ########.fr       */
+/*   Updated: 2026/01/18 21:46:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#inclyude "get_next_line.h"
+#include "get_next_line.h"
 
 size_t ft_strlen(const char *s)
 {
@@ -141,3 +141,4 @@ char *ft_substr(char *s, unsigned int start, size_t len)
     sub[i] = '\0';
     return (sub);
 }
+
