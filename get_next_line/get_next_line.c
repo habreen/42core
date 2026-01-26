@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2026/01/22 21:12:35 by codespace        ###   ########.fr       */
+/*   Updated: 2026/01/26 20:39:46 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,35 @@ static char *extract_line(char *stash)
     return (ft_substr(stash, 0, i));
 }
 
+static char *clean_stash(char *stash)
+{
+    size_t i;
+    char *new_stash;
+    
+    i=0;
+    while(stash[i] && stash[i] != '\n')
+        i++;
+    if(!stash[i])
+    {
+        free(stash);
+        return(NULL);
+    }
+    new_stash = ft_strdup(stash + i + 1);
+    free(stash);
+    return(new_stash);
+}
+
+char *get_next_line(int fd)
+{
+    static char *stash;
+    char *line;
+
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return(NULL);
+    stash = read_and_join(fd,stash);
+    if(!stash)
+        return(NULL);
+    line = extract_line(stash);
+    stash = clean_stash(stash);
+    return(line);
+}
