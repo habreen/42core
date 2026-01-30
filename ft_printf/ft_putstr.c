@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_putsr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2026/01/30 20:16:15 by codespace        ###   ########.fr       */
+/*   Updated: 2026/01/30 22:23:45 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+int ft_putstr(char *s)
+{
+    int i;
 
-int	ft_printf(const char *format, ...);
-
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putnbr_unsigned(unsigned int n);
-int	ft_puthex(unsigned long n, char format);
-int ft_putptr(unsigned long p);
-
-#endif
+    i = 0;
+    if (!s)
+        return(write(1,"(null)",6));
+    i = 0;
+    while(s[i])
+        write(1,&s[i++],1);
+    return (i);
+}

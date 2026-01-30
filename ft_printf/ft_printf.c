@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2026/01/30 20:36:38 by codespace        ###   ########.fr       */
+/*   Updated: 2026/01/30 22:36:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ static int handle_format(char c,va_list args)
     if (c == 'x' || c == 'X')
         return(ft_puthex(va_arg(args,unsigned int),c));
     if (c == 'p')
+    {
         ft_putstr("0x");
         return(2+ ft_puthex(va_arg(args,unsigned long),c));
+    }
     if (c == '%')
         return(ft_putchar('%'));
     return(0);
@@ -46,13 +48,36 @@ int ft_printf(const char *format, ...)
     {
         if (format[i] == '%' && format[i + 1])
         {
-            count += handle_format(format[i + 1],args);
+            count = count + handle_format(format[i + 1],args);
             i++;
         }
         else
-            count += ft_putchar(format[i]);
+            count = count + ft_putchar(format[i]);
         i++;
     }
     va_end(args);
     return(count);
 }
+
+// #include "ft_printf.h"
+// #include <stdio.h> // for comparison
+
+// int main(void)
+// {
+//     int len1;
+//     int len2;
+//     char *str = "Hello, 42!";
+
+//     // Test ft_printf
+//     len1 = ft_printf("ft_printf: char: %c, string: %s, pointer: %p\n", 'A', str, str);
+//     len1 = len1 + ft_printf("ft_printf: int: %d, unsigned: %u, hex: %x %X, percent: %%\n", -42, 42, 255, 255);
+
+//     // Compare with standard printf
+//     len2 = printf("printf: char: %c, string: %s, pointer: %p\n", 'A', str, str);
+//     len2 = len2 + printf("printf: int: %d, unsigned: %u, hex: %x %X, percent: %%\n", -42, 42, 255, 255);
+
+//     ft_printf("ft_printf returned: %d\n", len1);
+//     printf("printf returned: %d\n", len2);
+
+//     return 0;
+// }

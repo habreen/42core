@@ -1,28 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_putnbr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:52:15 by hshamudh          #+#    #+#             */
-/*   Updated: 2026/01/30 20:16:15 by codespace        ###   ########.fr       */
+/*   Updated: 2026/01/30 22:23:45 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
 
-int	ft_printf(const char *format, ...);
+int	ft_putnbr(int n)
+{
+	long	nb;
+    int     count;
 
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putnbr_unsigned(unsigned int n);
-int	ft_puthex(unsigned long n, char format);
-int ft_putptr(unsigned long p);
+	nb = n;
+    count = 0;
+	if (nb < 0)
+	{
+		count = count + ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb > 9)
+	{
+		count = count + ft_putnbr(nb / 10);
+	}
+	count = count + ft_putchar(nb % 10 + '0');
+    return (count);
+}
 
-#endif
+int	ft_putnbr_unsigned(unsigned int n)
+{
+    unsigned int	nb;
+    int             count;
+
+    nb = n;
+    count = 0;
+    if (nb > 9)
+    {
+        count = count + ft_putnbr_unsigned(nb / 10);
+    }
+    count = count + ft_putchar(nb % 10 + '0');
+    return (count);
+}
